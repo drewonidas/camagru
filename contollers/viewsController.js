@@ -7,41 +7,44 @@
 * @License: maDezynIzM.E. 2016
 */
 
-var register = null;
-var login = null;
+var signIn = null;
+var signUp = null;
 //join.addEventListener("click", )
 function linkEvents() {
 	document.getElementById("join").addEventListener("click", toggleLoginForm, false);
-	document.getElementById("upload").addEventListener("click", toggleUploadForm, false);
+	//document.getElementById("upload").addEventListener("click", toggleUploadForm, false);
+	document.getElementById("openSignIn").addEventListener("click", openSignIn, false);
+	document.getElementById("openSignUp").addEventListener("click", openSignUp, false);
+	signIn = document.getElementById("signInForm");
+	signUp = document.getElementById("signUpForm");
+    signIn.style.display = "flex";
+    signUp.style.display = "none";
 	//document.getElementById("studio_btn").addEventListener("click", openPhotostudio, false);
 }
 
 function toggleLoginForm(event)
 {
 	var form = document.getElementById("access_form");
-	if (!register || !login) {
-		register = form.children[1];
-		login = form.children[0];
-	}
-	openLogin();
-	if (form.style.width == "250px")
+	if (form.style.width == "450px")
 		form.style.width = "0";
 	else
-		form.style.width = "250px";
+		form.style.width = "450px";
 }
 
-function openRegistration(event) {
-	if (register.style.display == "none")
-		register.style.display = "flex";
-	else
-		register.style.display = "none";
+function openSignUp(event) {
+	if (signUp.style.display == "none") {
+        signUp.style.display = "flex";
+        signIn.style.display = "none";
+    } else
+		signUp.style.display = "none";
 }
 
-function openLogin(event) {
-	if (login.style.display == "none")
-		login.style.display = "flex";
-	else
-		login.style.display = "flex";
+function openSignIn(event) {
+	if (signIn.style.display == "none") {
+        signIn.style.display = "flex";
+        signUp.style.display = "none";
+    } else
+		signIn.style.display = "flex";
 }
 
 function toggleUploadForm(event) {

@@ -1,66 +1,51 @@
 <div class="md_float_mid md_side_bar" id="access_form">
     <!--
-        login form
+        signIn form
     -->
-    <form class="md_card" method="post" id="md_login" action="" onsubmit="validateUser()">
+    <form class="md_card" method="post" id="signInForm" action="" onsubmit="validateUser()">
         <h1 class="card_title">Login</h1>
         <div class="md_input_wrapper">
             <p>Username/E-mail:</p>
-            <input type="text" name="uname" required/>
+            <input type="text" name="signInUsername" required/>
         </div>
         <div class="md_input_wrapper">
             <p>Password:</p>
-            <input type="text" name="password" maxlength="10" required/>
+            <input type="text" name="signInPassword" maxlength="10" required/>
         </div>
         <div class="md_input_wrapper">
             <input type="submit"/>
         </div>
         <div class="md_options md_container">
-            <a onclick="openRegistration();">uhm...I dont have an account!</a>
-            <a>haha..I forgot my password!</a>
+            <a id="openSignUp">uhm...I dont have an account!</a>
+            <a>haha..I forgot my password :D!</a>
         </div>
     </form>
-
     <!--
         registration form
     -->
-    <form class="md_card" method="post" id="md_register" action="" onsubmit="registerUser()">
-    <h1 class="card_title">Register</h1>
-    <div class="md_input_wrapper">
-        <p>Username:</p>
-        <input type="text" name="uname" required/>
-    </div>
-    <div class="md_input_wrapper">
-        <p>E-mail:</p>
-        <input type="email" name="e-mail" placeholder="example@here.com" required/>
-    </div>
-    <div class="md_input_wrapper">
-        <p>Password:</p>
-        <input type="text" name="password1" maxlength="10" required/>
-    </div>
-    <div class="md_input_wrapper">
-        <p>Re-enter password:</p>
-        <input type="text" name="password2" maxlength="10" required/>
-    </div>
-    <div class="md_input_wrapper">
-        <input type="submit"/>
-    </div>
-    <div class="md_options md_container">
-        <a onclick="openLogin();">uhm...I have an account!</a>
-    </div>
+    <form class="md_card" method="post" id="signUpForm" action="" onsubmit="registerUser()">
+        <h1 class="card_title">Register</h1>
+        <div class="md_input_wrapper">
+            <p>Username:</p>
+            <input type="text" name="signUpPassword" required/>
+        </div>
+        <div class="md_input_wrapper">
+            <p>E-mail:</p>
+            <input type="email" name="signUpEmail" placeholder="example@here.com" required/>
+        </div>
+        <div class="md_input_wrapper">
+            <p>Password:</p>
+            <input type="text" name="signUpPassword1" maxlength="10" required/>
+        </div>
+        <div class="md_input_wrapper">
+            <p>Re-enter password:</p>
+            <input type="text" name="signUpPassword2" maxlength="10" required/>
+        </div>
+        <div class="md_input_wrapper">
+            <input type="submit"/>
+        </div>
+        <div class="md_options md_container">
+            <a id="openSignIn">uhm...I have an account!</a>
+        </div>
     </form>
-    <div class="md_container md_col_container">
-        <?php
-				if (!$_SESSION)
-					echo '
-						<a id="sign_in" class="md_dropdown_btn"
-							onclick="openLogin();">Bro, its me!</a><br/>
-        <a id="sign_up" class="md_dropdown_btn">I am new?
-        </a><br/>';
-        else
-        echo '<a id="logout" class="md_dropdown_btn"
-                 onclick="openRegistration();" href="model/logout.php"
-    >I am out!!</a>';
-        ?>
-    </div>
 </div>

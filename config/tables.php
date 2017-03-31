@@ -8,7 +8,7 @@
 @License: maDezynIzM.E. 2016
 */
 
-    require('../classes/Modal.class.php');
+    require('../model/classes/Modal.class.php');
 
     function setupDBTables() {
         $modal = new Modal();

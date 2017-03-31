@@ -28,7 +28,7 @@ nav a {
 	transition: all 1s;
 }
 nav a:hover {border-bottom: 2px solid white;}
-#md_login, #md_register {display: none;}
+#signInForm, #signUpForm {display: none;}
 .md_dropdown {
 	flex: 1;
 	-moz-justify-content: flex-end;

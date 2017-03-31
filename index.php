@@ -6,14 +6,15 @@
 @Last modified time: Tuesday, October 25, 2016 2:26 AM
 @License: maDezynIzM.E. 2016
 -->
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link href="styles/style.css" rel="stylesheet"/>
 	<link href="styles/style_main.css" rel="stylesheet"/>
-	<script src="contollers/camagru.js"></script>
+	<script src="contollers/viewsController.js"></script>
+	<script src="contollers/appController.js"></script>
 	<title>CamaGru</title>
 </head>
 <body onload="linkEvents()">
@@ -25,16 +26,16 @@
 		</nav>
 		<div class="md_dropdown md_container md_col_container"  id="join">
 			<a class="md_login_btn"></a>
-            <p>guest</p>
+            <p id="username">guest</p>
 		</div>
 	</header>
 	<!--
 		main window
 	-->
+    <?php include_once("views/signInViewModal.html")?>
 	<section class="md_container .md_full_size content">
         <h1>CONTENT COMING... SOON!!</h1>
         <div></div>
-        0
 	</section>
 	<footer class="md_container">
         <div>

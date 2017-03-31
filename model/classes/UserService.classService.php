@@ -6,7 +6,7 @@
      * Time: 10:07 AM
      */
 
-    require('classes/Modal.class.php');
+    require('Modal.class.php');
 
     class UserAccessService {
         // log user in
@@ -23,8 +23,8 @@
         }
 
         // add a new user
-        public static function signUp($username, $password,$email) {
-            $data = array($username, $email, $password);
+        public static function signUp($username, $password, $email) {
+            $data = array($username, $password, $email);
             $modal = new Modal();
             $sql = $modal->generate_sql('new_user');
             return ($modal->change_db_data($sql, $data));
