@@ -21,7 +21,7 @@
                 // set the PDO error mode to exception
                 $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(PDOException $e) {
-                echo 'something went wrong:' . $e->getMessage() . '<br/>';
+                echo 'something went wrong:' . $e->getMessage();
             }
         }
 
@@ -91,15 +91,6 @@
             return ($sql);
         }
 
-        /*// generates a verification email to be sent to the user
-        public function mail_user($email, $type, $subj) {
-            if ($type == 'verify')
-                $message = wordwrap($ver_message, 70, "\r\n");
-            else
-            echo 'done<br/>';
-                $message = wordwrap($pwd_message, 70, "\r\n");
-        }*/
-
         // email verification
         // TODO: ADD TRY-CATCH
         public function verify_user($user_id, $ver_code) {
@@ -124,7 +115,7 @@
                 $resultData = $tmp->fetchAll();
                 return ($resultData);
             } catch(PDOException $e) {
-                echo 'Error: ' . $e->getMessage() . '<br/>';
+                echo 'Error: ' . $e->getMessage();
             }
         }
 
@@ -139,7 +130,7 @@
                 }
                 return ($tmp->execute());
             } catch(PDOException $e) {
-                echo 'Error: ' . $e->getMessage() . '<br/>';
+                echo 'Error: ' . $e->getMessage();
             }
         }
 

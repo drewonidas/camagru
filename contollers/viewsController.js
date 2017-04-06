@@ -11,15 +11,30 @@ var signIn = null;
 var signUp = null;
 //join.addEventListener("click", )
 function linkEvents() {
+	//set app # anchor
+	/*if (this.readyState) {
+        location.pathname = "camagru/";
+        location.hash = "home";
+    }*/
+
+	// setup event listeners
 	document.getElementById("join").addEventListener("click", toggleLoginForm, false);
 	//document.getElementById("upload").addEventListener("click", toggleUploadForm, false);
 	document.getElementById("openSignIn").addEventListener("click", openSignIn, false);
 	document.getElementById("openSignUp").addEventListener("click", openSignUp, false);
+
+	// initialize access modal
 	signIn = document.getElementById("signInForm");
 	signUp = document.getElementById("signUpForm");
     signIn.style.display = "flex";
     signUp.style.display = "none";
+
 	//document.getElementById("studio_btn").addEventListener("click", openPhotostudio, false);
+    isSignedIn();
+	// display 'guest' or username if user logged in
+	/*var signedUser = isSignedIn();
+	console.log(signedUser);
+	signedUsername.innerHTML = signedUser;*/
 }
 
 function toggleLoginForm(event)

@@ -14,26 +14,26 @@
 	<link href="styles/style.css" rel="stylesheet"/>
 	<link href="styles/style_main.css" rel="stylesheet"/>
 	<script src="contollers/viewsController.js"></script>
-	<script src="contollers/appController.js"></script>
 	<title>CamaGru</title>
 </head>
 <body onload="linkEvents()">
-	<header class="md_container md_float_base" id="nav">
-		<nav class="md_container">
-			<div id="logo">CamaGru</div>
-			<a id="gallery_btn">Gallery</a>
-            <a id="studio_btn">Photostudio</a>
-		</nav>
-		<div class="md_dropdown md_container md_col_container"  id="join">
-			<a class="md_login_btn"></a>
-            <p id="username">guest</p>
-		</div>
-	</header>
-	<!--
-		main window
-	-->
-    <?php include_once("views/signInViewModal.html")?>
-	<section class="md_container .md_full_size content">
+<header class="md_container md_float_base" id="nav">
+    <nav class="md_container">
+        <div id="logo">CamaGru</div>
+        <a id="gallery_btn">Gallery</a>
+        <a id="studio_btn">Photostudio</a>
+    </nav>
+    <div class="md_dropdown md_container md_col_container"  id="join">
+        <a class="md_login_btn"></a>
+        <p id="username"></p>
+    </div>
+</header>
+<!--
+    main window
+-->
+<?php include_once("views/signInViewModal.html")?>
+<script src="contollers/appController.js"></script>
+<section class="md_container .md_full_size content">
         <h1>CONTENT COMING... SOON!!</h1>
         <div></div>
 	</section>

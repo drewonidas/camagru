@@ -1,4 +1,4 @@
-<?php
+b<?php
     /**
      * Created by PhpStorm.
      * User: Andrew
@@ -6,19 +6,9 @@
      * Time: 8:52 AM
      */
 
-    require('classes/UserService.classService.php');
+    require('classes/UserService.class.php');
     session_start();
-
-    // **mock data
-    /*$_SERVER['REQUEST_METHOD'] = 'POST';
-    /*$_POST['REQUEST_TYPE'] = 'SIGNUP';
-    $_POST['uname'] = 'Jesus';
-    $_POST['upwd'] = 'js';
-    $_POST['email'] = 'Jesus@heaven.com';
-
-    $_POST['REQUEST_TYPE'] = 'SIGNOUT';
-    $_POST['uname'] = 'Jesus';
-    $_POST['upwd'] = 'js';*/
+//    session_destroy();
 
     // validate input from forms
     function test_input($data) {
@@ -28,26 +18,42 @@
         return $data;
     }
 
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $param = json_decode($_GET["x"], false);
+        if ($_SESSION && array_key_exists('username', $_SESSION))
+            echo json_encode($_SESSION["username"]);
+        else
+            echo json_encode("Guest");
+
+    }
+
+    //echo json_encode('jenny');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if ($_POST['REQUEST_TYPE'] == 'SIGNUP') {
-            $username = test_input($_POST['uname']);
-            $password = test_input($_POST['upwd']);
-            $email = test_input($_POST['email']);
+        $req = file_get_contents("php://input");
+        $data_req = json_decode($req, true);
+
+        if ($data_req['REQ_TYPE'] == 'SIGNUP') {
+            $username = test_input($data_req['uname']);
+            $password = test_input($data_req['upwd']);
+            $email = test_input($data_req['email']);
             $response = UserAccessService::signUp($username, $password, $email);
-            echo $response;
+            echo json_encode($response);
         }
 
-        if ($_POST['REQUEST_TYPE'] == 'SIGNIN') {
-            $username = test_input($_POST['uname']);
-            $password = test_input($_POST['upwd']);
+        if ($data_req['REQ_TYPE'] == 'SIGNIN') {
+            $username = test_input($data_req['uname']);
+            $password = test_input($data_req['upwd']);
             $response = UserAccessService::signIn($username, $password);
-            echo $response;
+            if ($response != 'FAlSE') {
+                $_SESSION['username'] = $username;
+            }
+            echo json_encode($response);
         }
 
-        if ($_POST['REQUEST_TYPE'] == 'SIGNOUT') {
+        if ($data_req['REQ_TYPE'] == 'SIGNOUT') {
             if (session_status() > 1) {
                 session_destroy();
-                echo 'TRUE';
+                echo json_encode('TRUE');
             }
         }
     }

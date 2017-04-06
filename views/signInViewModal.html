@@ -2,7 +2,7 @@
     <!--
         signIn form
     -->
-    <form class="md_card" method="post" id="signInForm" action="" onsubmit="validateUser()">
+    <form class="md_card" id="signInForm">
         <h1 class="card_title">Login</h1>
         <div class="md_input_wrapper">
             <p>Username/E-mail:</p>
@@ -13,7 +13,7 @@
             <input type="text" name="signInPassword" maxlength="10" required/>
         </div>
         <div class="md_input_wrapper">
-            <input type="submit"/>
+            <input type="submit" value="submit" onclick="validateUser()"/>
         </div>
         <div class="md_options md_container">
             <a id="openSignUp">uhm...I dont have an account!</a>
@@ -23,11 +23,11 @@
     <!--
         registration form
     -->
-    <form class="md_card" method="post" id="signUpForm" action="" onsubmit="registerUser()">
+    <form class="md_card" id="signUpForm">
         <h1 class="card_title">Register</h1>
         <div class="md_input_wrapper">
             <p>Username:</p>
-            <input type="text" name="signUpPassword" required/>
+            <input type="text" name="signUpUsername" required/>
         </div>
         <div class="md_input_wrapper">
             <p>E-mail:</p>
@@ -42,7 +42,7 @@
             <input type="text" name="signUpPassword2" maxlength="10" required/>
         </div>
         <div class="md_input_wrapper">
-            <input type="submit"/>
+            <input type="submit" value="submit" onclick="registerUser()"/>
         </div>
         <div class="md_options md_container">
             <a id="openSignIn">uhm...I have an account!</a>
