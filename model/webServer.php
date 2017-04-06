@@ -1,4 +1,4 @@
-b<?php
+<?php
     /**
      * Created by PhpStorm.
      * User: Andrew
@@ -20,10 +20,18 @@ b<?php
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $param = json_decode($_GET["x"], false);
+
         if ($_SESSION && array_key_exists('username', $_SESSION))
             echo json_encode($_SESSION["username"]);
         else
             echo json_encode("Guest");
+
+        if ($param == 'SIGNOUT') {
+            if (session_status() > 1) {
+                session_destroy();
+                echo json_encode('TRUE');
+            }
+        }
 
     }
 
@@ -48,12 +56,5 @@ b<?php
                 $_SESSION['username'] = $username;
             }
             echo json_encode($response);
-        }
-
-        if ($data_req['REQ_TYPE'] == 'SIGNOUT') {
-            if (session_status() > 1) {
-                session_destroy();
-                echo json_encode('TRUE');
-            }
         }
     }

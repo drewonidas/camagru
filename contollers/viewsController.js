@@ -19,9 +19,9 @@ function linkEvents() {
 
 	// setup event listeners
 	document.getElementById("join").addEventListener("click", toggleLoginForm, false);
-	//document.getElementById("upload").addEventListener("click", toggleUploadForm, false);
 	document.getElementById("openSignIn").addEventListener("click", openSignIn, false);
 	document.getElementById("openSignUp").addEventListener("click", openSignUp, false);
+	//document.getElementById("upload").addEventListener("click", toggleUploadForm, false);
 
 	// initialize access modal
 	signIn = document.getElementById("signInForm");

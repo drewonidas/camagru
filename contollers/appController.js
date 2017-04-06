@@ -16,10 +16,9 @@ function validateUser() {
     xhttpRequest.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             var response = JSON.parse(xhttpRequest.responseText);
-            document.getElementById("username").innerHTML = response[0].uname;
+            alert("You have signed in");
         }
     };
-
     xhttpRequest.send(JSON.stringify(params));
 }
 
@@ -36,6 +35,7 @@ function registerUser() {
     xhttpRequest.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             var response = JSON.parse(xhttpRequest.responseText);
+            alert("You have signed up!! Welcome");
         }
     };
     xhttpRequest.send(JSON.stringify(params));
@@ -50,9 +50,23 @@ function isSignedIn() {
     xhttpRequest.setRequestHeader("Content-type", "application/json");
     xhttpRequest.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            console.log(xhttpRequest.responseText);
+            document.getElementById("username").innerHTML = JSON.parse(xhttpRequest.responseText);
         }
     };
     xhttpRequest.send();
-    location.pathname = "camagru/";
+    // location.pathname = "camagru/";
+}
+
+function signOut() {
+    var dbParam = JSON.stringify("SIGNOUT");
+    var xhttpRequest = new XMLHttpRequest();
+
+    xhttpRequest.open("GET", "model/webServer.php?x=" + dbParam, true);
+    xhttpRequest.setRequestHeader("Content-type", "application/json");
+    xhttpRequest.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            alert("You have signed out");
+        }
+    };
+    xhttpRequest.send();
 }

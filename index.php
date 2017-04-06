@@ -41,6 +41,7 @@
         <div>
             <p>The CamaGru Project</p>
             <p>maDezynIzM_E_ 2017</p>
+            <a onclick="signOut()">signOut</a>
         </div>
 	</footer>
 </body>
