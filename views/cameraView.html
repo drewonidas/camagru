@@ -3,32 +3,39 @@
 -->
 <div class="md_container md_large_size" id="photostudio">
     <div id="splashes" class="md_container">
-        <?php
-					for ($c = 0; $c < 4; $c++) {
-						echo '
-							<div class="blocks m
-							11qd_float_base">
-        <img src="imgs/splashes/splash' . $c . '.png"/>
-    </div>';
-    }
-    ?>
-</div>
-<div id="photoshot" class="md_container">
+        <div class="blocks md_float_base">
+            <img src="resources/splashes/splash0.png"/>
+        </div>
+        <div class="blocks md_float_base">
+            <img src="resources/splashes/splash1.png"/>
+        </div>
+        <div class="blocks md_float_base">
+            <img src="resources/splashes/splash2.png"/>
+        </div>
+        <div class="blocks md_float_base">
+            <img src="resources/splashes/splash3.png"/>
+        </div>
+    </div>
+    <div id="photoshot" class="md_container">
+        <video autoplay="true" id="videoElement">
 
-</div>
-<div class="md_container">
-    <a class="md_btn">click me!</a>
-    <a class="md_btn" id="upload">...or me :)</a>
-    <form class="md_container md_col_container md_upload_form"
-          id="upload_form" action="model/uploadImage.php"
-          method="post" enctype="multipart/form­-data">
-        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-        Select image:
-        <input type="file" name="imageFile" id="image_file" enctype="multipart/form­-data"/>
-        <input type="submit" value="uploadImage" name="submit"/>
-    </form>
-</div>
-<div class="md_container md_full_w_small_h" id="prev_panel">
-    <p>sumthng</p>
-</div>
+        </video>
+        <canvas id="snapshotCanvas"></canvas>
+    </div>
+    <div class="md_container">
+        <a class="md_btn" onclick="webcamDisplay()">Cam on/off</a>
+        <a class="md_btn" onclick="photoshot()">Snap!!</a>
+        <a class="md_btn" id="upload">...or me :)</a>
+        <form class="md_container md_col_container md_upload_form"
+              id="upload_form" action="model/webServer.php"
+              method="post" enctype="multipart/form-data">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+            Select image:
+            <input type="file" name="imageFile" id="image_file" />
+            <input type="submit" value="uploadImage" name="submit"/>
+        </form>
+    </div>
+    <div class="md_container md_full_w_small_h" id="prev_panel">
+        <p>something</p>
+    </div>
 </div>

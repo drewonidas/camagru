@@ -70,3 +70,42 @@ function signOut() {
     };
     xhttpRequest.send();
 }
+
+var video = null;
+var webcamStream = null;
+
+function webcamDisplay() {
+    video = document.getElementById("videoElement");
+
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, handleVideo, videoError);
+    }
+
+    function handleVideo(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        webcamStream = localMediaStream;
+    }
+
+    function videoError(e) {
+        // do something
+    }
+}
+
+function stopWebcam() {
+    webcamStream.stop();
+}
+
+function photoshot() {
+    var canvas, ctx;
+    // Get the canvas and obtain a context for
+    // drawing in it
+    canvas = document.getElementById("snapshotCanvas");
+    ctx = canvas.getContext('2d');
+
+    // Draw current image from the video element into the canvas
+    ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+    canvas.style.visibility = "visible";
+    stopWebcam();
+}

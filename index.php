@@ -14,6 +14,7 @@
 	<link href="styles/style.css" rel="stylesheet"/>
 	<link href="styles/style_main.css" rel="stylesheet"/>
 	<script src="contollers/viewsController.js"></script>
+	<script src="contollers/appController.js"></script>
 	<title>CamaGru</title>
 </head>
 <body onload="linkEvents()">
@@ -32,10 +33,8 @@
     main window
 -->
 <?php include_once("views/signInViewModal.html")?>
-<script src="contollers/appController.js"></script>
-<section class="md_container .md_full_size content">
-        <h1>CONTENT COMING... SOON!!</h1>
-        <div></div>
+    <section class="md_container .md_full_size content">
+        <?php include_once("views/cameraView.html")?>
 	</section>
 	<footer class="md_container">
         <div>

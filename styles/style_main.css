@@ -52,13 +52,22 @@ nav a:hover {border-bottom: 2px solid white;}
 	-webkit-justify-content: flex-start;
 	-moz-justify-content: flex-start;
 	justify-content: flex-start;
-	display: none;
+	display: flex;
 }
 #splashes {height: 350px; width: 350px;}
-#photoshot {
+#photoshot, #videoElement, #snapshotCanvas {
 	background-color: black;
 	width: 350px;
 	height: 350px;
+}
+#videoElement, #snapshotCanvas {
+	max-width: 98%;
+	max-height: 98%;
+}
+#snapshotCanvas {
+	z-index: 4;
+	height: 300px;
+	visibility: hidden;
 }
 #gallery {
 	-moz-justify-content: space-around;
