@@ -8,10 +8,11 @@
 */
 
 html, body {height: 100%;}
+body {background-color: dodgerblue;}
 * {margin: auto;}
-a {cursor: pointer;}
+a, #join:hover {cursor: pointer;}
 #nav {
-	background-color: skyblue;
+	background-color: rgba(0,0,0,0.3);
 	height: 10%;
 	/*-moz-justify-content: space-between;
 	-webkit-justify-content: space-between;
@@ -19,23 +20,35 @@ a {cursor: pointer;}
 }
 nav {
 	flex: 2;
+	justify-content: flex-start;
 	-moz-justify-content: flex-start;
 	-webkit-justify-content: flex-start;
-	justify-content: flex-start;
 }
 nav a {
 	border-bottom: 2px solid rgba(255, 122, 255, 0.5);;
 	transition: all 1s;
 }
 nav a:hover {border-bottom: 2px solid white;}
-#signInForm, #signUpForm {display: none;}
+img {
+	width: 100%;
+	height: 100%;
+}
 .md_dropdown {
 	flex: 1;
+	max-width: 450px;
+	justify-content: flex-end;
 	-moz-justify-content: flex-end;
 	-webkit-justify-content: flex-end;
-	justify-content: flex-end;
-	background-color: orange;
 }
+#avatar {
+	width: 50px;
+	height: auto;
+}
+#sign_out_button {visibility: hidden;}
+#access_form {
+	background-color: rgba(0,0,0,0.3);
+}
+#signInForm, #signUpForm {display: none;}
 .content {
 	width: 100%;
 	min-height: 70%;
@@ -46,28 +59,77 @@ nav a:hover {border-bottom: 2px solid white;}
 	-webkit-align-items: stretch;
 	align-items: stretch;
 }
+#main {
+	-moz-align-items: stretch;
+	-webkit-align-items: stretch;
+	align-items: stretch;
+	max-height: 75%;
+	background-color: rgba(0,0,0,0.1);
+}
 #photostudio {
-	background-color: red;
+	flex-wrap: nowrap;
+	-moz-flex-wrap: nowrap;
+	-webkit-flex-wrap: nowrap;
+}
+#studio_content {
+	width: 70%;
+	height: 100%;
+	min-height: 100%;
+	background-color: rgba(0,0,0,0);
+}
+#camContainer {
+	flex-wrap: nowrap;
+	-moz-flex-wrap: nowrap;
+	-webkit-flex-wrap: nowrap;
+	min-width: 90%;
+	min-height: 70%;
+	max-width: 90%;
+	max-height: 70%;
+}
+#controls_container {
+	min-width: 90%;
+	height: 30%;
+}
+#preview_panel {
+	width: 30%;
+	min-height: 100%;
+}
+.md_btn {
+	-moz-justify-content: space-around;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+ #imposer, #cam_snap_canvas {height: 350px; width: 350px;}
+#splashes {
+	flex: 1;
+	flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+}
+#photoshot {
+	flex: 3;
+}
+#webCamVideo {
+	background-color: rgba(0,0,0,0);
+}
+#webCamVideo, #preview_image {
 	width: 800px;
-	-webkit-justify-content: flex-start;
-	-moz-justify-content: flex-start;
-	justify-content: flex-start;
-	display: flex;
+	height: 600px;
+	max-width: 90%;
+	max-height: 90%;
 }
-#splashes {height: 350px; width: 350px;}
-#photoshot, #videoElement, #snapshotCanvas {
-	background-color: black;
-	width: 350px;
-	height: 350px;
+#imposer {
+	background-color: rgba(0,0,0,0.0);
+	z-index: -1;
+	position: fixed;
+	top: 15%;
 }
-#videoElement, #snapshotCanvas {
-	max-width: 98%;
-	max-height: 98%;
-}
-#snapshotCanvas {
-	z-index: 4;
+#preview_image {
 	height: 300px;
-	visibility: hidden;
+}
+#cam_snap_canvas {
+	max-width: 90%;
+	background-color: black;
 }
 #gallery {
 	-moz-justify-content: space-around;
@@ -78,8 +140,9 @@ nav a:hover {border-bottom: 2px solid white;}
 	background-color: blue;
 }
 .blocks {
-	width: 48%;
-	height: 48%;
+	width: 45%;
+	max-width: 8vw;
+	height: 8vw;
 	background-color: green;
 	border: 2px solid rgba(0,0,0,0);
 }
@@ -87,14 +150,12 @@ nav a:hover {border-bottom: 2px solid white;}
 	border: 2px solid skyblue;
 	cursor: pointer;
 }
-img {
-	width: 100%;
-	height: 100%;
+.preview_card {
+	width: 90%;
 }
-#prev_panels {width: 100%; min-height: 100%; background-color: green;}
 footer {
 	width: 100%;
-	min-height: 8%;
-	bottom: 0;
-	background-color: yellow;
+	min-height: 15%;
+	background-color: black;
 }
+footer p {color: white;}

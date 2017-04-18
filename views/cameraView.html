@@ -1,41 +1,48 @@
 <!--
     photostudio
 -->
-<div class="md_container md_large_size" id="photostudio">
-    <div id="splashes" class="md_container">
-        <div class="blocks md_float_base">
-            <img src="resources/splashes/splash0.png"/>
+<div class="md_container md_full_size" id="photostudio">
+    <div id="studio_content" class="md_container">
+        <div id="splashes" class="md_col_container">
+            <div class="blocks md_float_base" >
+                <img src="resources/splashes/splash0.png" onclick="selectImposer(this)"/>
+            </div>
+            <div class="blocks md_float_base">
+                <img src="resources/splashes/splash1.png" onclick="selectImposer(this)"/>
+            </div>
+            <div class="blocks md_float_base">
+                <img src="resources/splashes/splash2.png" onclick="selectImposer(this)"/>
+            </div>
+            <div class="blocks md_float_base">
+                <img src="resources/splashes/splash3.png" onclick="selectImposer(this)"/>
+            </div>
         </div>
-        <div class="blocks md_float_base">
-            <img src="resources/splashes/splash1.png"/>
-        </div>
-        <div class="blocks md_float_base">
-            <img src="resources/splashes/splash2.png"/>
-        </div>
-        <div class="blocks md_float_base">
-            <img src="resources/splashes/splash3.png"/>
+        <div id="photoshot" class="md_col_container">
+            <div id="camContainer">
+                <div>
+                    <video autoplay="true" id="webCamVideo"></video>
+                </div>
+                <img src="" id="imposer"/>
+            </div>
+            <div class="md_container" id="controls_container">
+                <a class="md_btn" onclick="webcamDisplay()">Cam on/off</a>
+                <a class="md_btn" onclick="photoshot()">Snap!!</a>
+                <a class="md_btn" id="upload">...or me :)</a>
+                <form class="md_container md_col_container md_upload_form"
+                      id="upload_form" action="model/webServer.php"
+                      method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                    Select image:
+                    <input type="file" name="imageFile" id="image_file" />
+                    <input type="submit" value="uploadImage" name="submit"/>
+                </form>
+            </div>
         </div>
     </div>
-    <div id="photoshot" class="md_container">
-        <video autoplay="true" id="videoElement">
-
-        </video>
-        <canvas id="snapshotCanvas"></canvas>
-    </div>
-    <div class="md_container">
-        <a class="md_btn" onclick="webcamDisplay()">Cam on/off</a>
-        <a class="md_btn" onclick="photoshot()">Snap!!</a>
-        <a class="md_btn" id="upload">...or me :)</a>
-        <form class="md_container md_col_container md_upload_form"
-              id="upload_form" action="model/webServer.php"
-              method="post" enctype="multipart/form-data">
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-            Select image:
-            <input type="file" name="imageFile" id="image_file" />
-            <input type="submit" value="uploadImage" name="submit"/>
-        </form>
-    </div>
-    <div class="md_container md_full_w_small_h" id="prev_panel">
-        <p>something</p>
+    <div class="md_col_container" id="preview_panel">
+        <div class="md_container preview_card">
+            <canvas id="cam_snap_canvas"></canvas>
+            <img src="" id="preview_image">
+        </div>
     </div>
 </div>
