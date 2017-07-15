@@ -44,7 +44,7 @@
     //echo json_encode('jenny');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $req = file_get_contents("php://input");
-        $data_req = json_decode($req, true);
+t
 
         if ($data_req['REQ_TYPE'] == 'SIGNUP') {
             $username = test_input($data_req['uname']);

@@ -25,7 +25,7 @@ nav {
 	-webkit-justify-content: flex-start;
 }
 nav a {
-	border-bottom: 2px solid rgba(255, 122, 255, 0.5);;
+	border-bottom: 2px solid rgba(255, 122, 255, 0.5);
 	transition: all 1s;
 }
 nav a:hover {border-bottom: 2px solid white;}

@@ -18,32 +18,32 @@
 	<title>CamaGru</title>
 </head>
 <body onload="linkEvents()">
-<header class="md_container md_float_base" id="nav">
-    <nav class="md_container">
-        <div id="logo">CamaGru</div>
-        <a id="gallery_btn">Gallery</a>
-        <a id="studio_btn">Photostudio</a>
-    </nav>
-    <div class="md_dropdown md_container" >
-        <div id="join" class="">
-            <img src="resources/appImages/user.svg" id="avatar"/>
-            <p id="username"></p>
-        </div>
-        <a onclick="signOut()" id="sign_out_button">Sign Out</a>
-    </div>
-</header>
+	<header class="md_container md_float_base" id="nav">
+	  <nav class="md_container">
+	    <div id="logo">CamaGru</div>
+	    <a id="gallery_btn">Gallery</a>
+	    <a id="studio_btn">Photostudio</a>
+	  </nav>
+	  <div class="md_dropdown md_container" >
+	    <div id="join" class="">
+	      <img src="resources/appImages/user.svg" id="avatar"/>
+	      <p id="username"></p>
+	    </div>
+	    <a onclick="signOut()" id="sign_out_button">Sign Out</a>
+	  </div>
+	</header>
 <!--
     main window
 -->
-<?php include_once("views/signInViewModal.html")?>
-    <section class="md_container md_full_size content" id="main">
-        <?php include_once("views/cameraView.html")?>
-	</section>
-	<footer class="md_container">
+<?php include_once("views/signInViewModal.html");?>
+  <section class="md_container md_full_size content" id="main">
+    <?php include_once("views/cameraView.html");?>
+    </section>
+    <footer class="md_container">
         <div>
             <p>The CamaGru Project</p>
             <p>maDezynIzM_E_ 2017</p>
         </div>
-	</footer>
+    </footer>
 </body>
 </html>
